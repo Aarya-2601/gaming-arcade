@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gamify Arcade</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+        <div class="logo" onclick="showSection('home-section')">
+            <img src="logo.png" height="100" alt="logo icon">
+        </div>
+        <ul class="nav-links">
+            <li>
+                <div class="dropdown">
+                    <button class="dropbtn">GAMES</button>
+                    <div class="dropdown-content">
+                        <a href="/landing_page/snake_game/index.html">Snake Game 2.0</a>
+                        <a href="/landing_page/tic_tac_toe/index.html">Tic Tac Toe</a>
+                        <a href="/landing_page/whack_a_mole/index.html">Whack a Mole</a>
+                        <a href="/landing_page/rock_paper_scissor/index.html">Rock Paper Scissors</a>
+                        <a href="/landing_page/memory_game/index.html">Memory Game</a>
+                    </div>
+                </div>
+            </li>
+            <li onclick="showSection('leaderboard-section')">LEADERBOARD</li>
+            <li onclick="showSection('profile-section')">PROFILE</li>
+            <li onclick="showSection('help-section')">HELP</li>
+        </ul>
+        <button class="join-btn" onclick="showSection('auth-section')">JOIN</button>
+    </nav>
+
+    <!-- HOME SECTION / HERO / CAROUSEL -->
+     <section class="game-section-container">
+    <div id="home-section" class="page-content">
+        <header class="hero">
+            <h1>IMMERSIVE <span class="gradient-text">ARCADE</span> FOR ALL</h1>
+            <p>The largest collection of retro and indie games, right in your browser.</p>
+        </header>
+        <div class="cards-wrapper">
+        <main class="carousel-container">
+            <div class="carousel">
+                <!-- Tic Tac Toe Card -->
+                <div class="card side-left">
+                    <a href="/landing_page/tic_tac_toe/index.html" style="text-decoration:none; color:inherit">
+                    <div class="card-content">
+                        <img src="ttt.png" alt="Tic Tac Toe">
+                        <h3>TIC-TAC-TOE</h3>
+                        <span class="tag">MULTIPLAYER</span>
+                    </div>
+                    </a>
+                </div>
+                <!-- RPS Card -->
+                <div class="card mid-left">
+                    <a href="/landing_page/rock_paper_scissor/index.html" style="text-decoration:none; color:inherit">
+                    <div class="card-content">
+                        <img src="rps.png" alt="Rock Paper Scissors">
+                        <h3>RPS CHALLENGE</h3>
+                        <span class="tag">STRATEGY</span>
+                    </div>
+                    </a>
+                </div>
+                <!-- Snake (Featured) Card -->
+                <div class="card center featured">
+                    <a href="/landing_page/snake_game/index.html" style="text-decoration:none; color:inherit">
+                    <div class="card-content">
+                        <div class="badge">Game of the Week</div>
+                        <img src="snake.png" alt="Snake">
+                        <div class="info">
+                            <h3>SNAKE 2.0</h3>
+                            <p class="score">SCORE: 2,170 PTS</p>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <!-- Whack A Mole Card -->
+                <div class="card mid-right">
+                    <a href="/landing_page/whack_a_mole/index.html" style="text-decoration:none; color:inherit">
+                    <div class="card-content">
+                        <img src="wam.png" alt="Whack a mole" class="wam">
+                        <h3>WHACK-A-MOLE</h3>
+                        <span class="tag">REFLEX</span>
+                    </div>
+                    </a>
+                </div>
+                <!-- Memory Card -->
+                <div class="card side-right">
+                    <a href="/landing_page/memory_game/index.html" style="text-decoration:none; color:inherit">
+                    <div class="card-content">
+                        <img src="memory.png" alt="Memory Game" class="memory">
+                        <h3>MEMORY GAME</h3>
+                        <span class="tag">PUZZLE</span>
+                    </div>
+                    </a>
+                </div>
+            </div>
+        </main>
+    </div>
+    </div>
+    </section>
+
+    <!-- LEADERBOARD SECTION -->
+    <section id="leaderboard-section" class="page-content hidden">
+        <h2 class="gradient-text">LEADERBOARDS</h2>
+        <div id="leaderboard-display" class="info-box"></div>
+    </section>
+
+    <!-- PROFILE SECTION -->
+    <section id="profile-section" class="page-content hidden">
+        <h2 class="gradient-text">YOUR PROFILE</h2>
+        <div id="profile-display" class="info-box"></div>
+        <button class="join-btn" onclick="logout()" style="margin-top:20px">LOGOUT</button>
+    </section>
+
+    <!-- AUTH SECTION (Login/Signup) -->
+    <section id="auth-section" class="page-content hidden">
+        <div class="auth-box">
+            <h2 class="gradient-text">JOIN US</h2>
+            <input type="text" id="username" placeholder="Username">
+            <input type="password" id="password" placeholder="Password">
+            <div style="margin-top:20px">
+                <button class="join-btn" onclick="signUp()">SIGN UP</button>
+                <button class="join-btn" onclick="login()">LOGIN</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- HELP SECTION -->
+    <section id="help-section" class="page-content hidden">
+        <h2 class="gradient-text">HELP CENTER</h2>
+        <div class="info-box">
+            <h3>FAQs</h3>
+            <p><strong>How to play?</strong> Choose a game from the 'GAMES' dropdown menu.</p>
+            <p><strong>Are scores saved?</strong> Yes, if you are logged in, your top 5 scores per game are kept.</p>
+            <p><strong>Helpdesk:</strong> Contact us at support@gamify.com</p>
+        </div>
+    </section>
+    
+    <!-- FOOTER -->
+    <footer class="arcade-footer">
+        <div class="footer-content">
+            <p>&copy; 2026 Arcade Zone. All rights reserved.</p>
+            <ul class="footer-links">
+                <li><a href="privacy.html">Privacy Policy</a></li>
+                <li><a href="terms.html">Terms of Service</a></li>
+                <li><a href="contactUs.html">Contact Us</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="script.js"></script>
+
+</body>
+</html>
